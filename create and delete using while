@@ -1,0 +1,30 @@
+$i=1
+$j=1
+$k=1
+while($i -ne 11)
+{
+$filename = "Mouli"+$i
+New-Item -Path $filename -ItemType directory
+$filetext = "Objext"+$i+".txt"
+New-Item -Path $filetext -ItemType File 
+cd C:\TEMP\powershell2\$filename
+while($j -ne 11){
+$filename1 = "Mouli"+$j
+New-Item -Path $filename1 -ItemType directory
+$objectname ="Object"+$j+".txt"
+New-Item -path $objectname -ItemType File
+cd C:\TEMP\powershell2\$filename\$filename1
+while($k -ne 11){
+$objectname2 = "Object"+$k+".txt"
+New-Item -Path $objectname2 -ItemType File
+Remove-Item C:\TEMP\powershell2\$filename\$filename1\$objectname2
+cd C:\TEMP\powershell2\$filename\$filename1
+$k=$k+1
+}
+Remove-Item C:\TEMP\powershell2\$filename\$objectname
+cd C:\TEMP\powershell2\$filename
+$j=$j+1
+}
+cd C:\TEMP\powershell2
+$i=$i+1
+}
